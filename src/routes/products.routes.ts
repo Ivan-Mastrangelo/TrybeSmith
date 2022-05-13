@@ -6,5 +6,6 @@ const productController = new ProductController();
 const route = Router();
 
 route.get('/', productController.gatAll);
+route.post('/', productController.create);
 
 export default route;
