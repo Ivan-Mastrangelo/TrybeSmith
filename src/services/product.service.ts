@@ -9,6 +9,17 @@ class ProductService {
   
     return products;
   };
+
+  public create = async (name: string, amount: string):
+  Promise<IProduct> => {
+    // const check = await helper.createValidate(name);
+  
+    // if (check === false) throw Error('Product already exists');
+  
+    const newProduct = await this.model.create(name, amount);
+                                         
+    return newProduct;
+  };
 }
 
 export default ProductService;
