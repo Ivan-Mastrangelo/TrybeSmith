@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import { Request, Response, NextFunction } from 'express';
-import ProductService from '../services/product.service';
+import ProductService from '../services/products.service';
 
 class ProductController {
   public service = new ProductService();
