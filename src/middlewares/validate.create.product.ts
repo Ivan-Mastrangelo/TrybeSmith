@@ -2,7 +2,6 @@ import Joi from 'joi';
 import { Request, Response, NextFunction } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
-
 const productSchema = Joi.object({
   name: Joi.string().min(3).required(),
   amount: Joi.string().min(3).required(),
