@@ -19,13 +19,22 @@ class UserModel {
     };
   };
 
-  public getAll = async (): Promise<IUser[]> {
+  public getAll = async (): Promise<IUser[]> => {
     const [users] = await connection.execute(
-      'SELECT id, username, classe, level, password FROM Trybesmith.Products ORDER BY id;',
+      'SELECT id, username, classe, level, password FROM Trybesmith.Users ORDER BY id;',
     );
     
     return users as IUser[];
-  }
+  };
+
+  public findByNameEndPassword = async (username: string, password: string): Promise<IUser> => {
+    const query = `SELECT * FROM Trybesmith.Users
+      WHERE username = ? AND password = ?`;
+    const [user] = await connection.execute(query, [username, password]);
+    console.log(user);
+
+    return user;
+  };
 }
 
 export default UserModel;
