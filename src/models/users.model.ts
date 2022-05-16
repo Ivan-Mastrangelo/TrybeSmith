@@ -18,6 +18,14 @@ class UserModel {
       password,
     };
   };
+
+  public getAll = async (): Promise<IUser[]> {
+    const [users] = await connection.execute(
+      'SELECT id, username, classe, level, password FROM Trybesmith.Products ORDER BY id;',
+    );
+    
+    return users as IUser[];
+  }
 }
 
 export default UserModel;
