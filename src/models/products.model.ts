@@ -24,6 +24,14 @@ class ProductModel {
       amount,
     };
   };
+
+  public upDate = async (orderId: number, id: number): Promise<void> => {
+    await connection.execute(
+      `UPDATE Trybesmith.Products SET
+      orderId = ? WHERE id = ?;`,
+      [orderId, id],
+    );
+  };
 }
 
 export default ProductModel;
