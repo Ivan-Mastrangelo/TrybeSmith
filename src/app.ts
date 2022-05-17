@@ -12,7 +12,7 @@ app.use(express.json());
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 app.use('/orders', orderRoutes);
-app.use('/logn', loginRoutes);
+app.use('/login', loginRoutes);
 
 app.use(errorHandler);
 
