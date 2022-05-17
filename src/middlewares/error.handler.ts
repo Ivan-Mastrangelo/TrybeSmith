@@ -7,9 +7,6 @@ const errorHandler = (
   _req: Request,
   res: Response,
   _next: NextFunction,
-) => {
-  console.log(err);
-  return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Wow! Something is wrong' });
-};
+) => res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ message: 'Wow! Something is wrong' });
 
 export default errorHandler;

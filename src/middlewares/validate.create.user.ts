@@ -13,7 +13,6 @@ const validateCreateUser = (req: Request, res: Response, next: NextFunction) => 
   try {
     const { username, classe, level, password } = req.body;
     const { error } = productSchema.validate({ username, classe, level, password });
-    console.log(error);
     if (error?.details[0].type === 'any.required') {
       return res.status(StatusCodes.BAD_REQUEST).json({ message: error.message });
     }

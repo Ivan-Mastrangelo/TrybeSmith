@@ -27,12 +27,13 @@ class UserModel {
     return users as IUser[];
   };
 
-  public findByNameEndPassword = async (username: string, password: string): Promise<IUser> => {
+  public findByNameAndPassword = async (username: string, password: string): Promise<IUser> => {
     const query = `SELECT * FROM Trybesmith.Users
       WHERE username = ? AND password = ?`;
-    const [user] = await connection.execute(query, [username, password]);
-    console.log(user);
+    const result = await connection.execute(query, [username, password]);
 
+    const [rows] = result;
+    const [user] = rows as IUser[];
     return user;
   };
 }

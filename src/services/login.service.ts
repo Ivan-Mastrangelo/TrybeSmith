@@ -5,7 +5,7 @@ class LoginService {
   public model = new UserModel();
 
   public login = async (username: string, password: string): Promise<string> => {
-    const user = await this.model.findByNameEndPassword(username, password);
+    const user = await this.model.findByNameAndPassword(username, password);
     if (!user) return ('error');
 
     const { id } = user;
