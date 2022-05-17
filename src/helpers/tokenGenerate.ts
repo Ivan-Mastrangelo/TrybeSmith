@@ -1,6 +1,6 @@
 import { sign } from 'jsonwebtoken';
 
-const tokenGenerate = (id: number, username: string) => {
+const tokenGenerate = (id: number, username: string): string => {
   const secretKey = 'xablau';
 
   const token = sign({ id, username }, secretKey, {
@@ -8,7 +8,7 @@ const tokenGenerate = (id: number, username: string) => {
     algorithm: 'HS256',
   });
 
-  return token;
+  return token as string;
 };
 
 export default tokenGenerate;
